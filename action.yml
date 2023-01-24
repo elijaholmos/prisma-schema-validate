@@ -1,0 +1,11 @@
+name: Prisma Schema Validate
+description: Validate the schema.prisma file
+branding:
+    icon: package
+    color: orange
+inputs:
+    version:
+        description: Version of Prisma to use
+runs:
+    using: node16
+    main: dist/index.js
