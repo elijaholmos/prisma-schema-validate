@@ -5,7 +5,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "ncc build index.js -m",
+		"build": "ncc build index.js -mC",
 		"build:w": "ncc build index.js -mw"
 	},
 	"keywords": [
