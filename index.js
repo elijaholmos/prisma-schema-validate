@@ -1,3 +1,4 @@
+import { info } from '@actions/core';
 import { spawn } from 'child_process';
 
 const installPrisma = async function () {
@@ -17,13 +18,13 @@ const installPrisma = async function () {
 };
 
 export default async function main() {
-	core.info('Installing Prisma...');
+	info('Installing Prisma...');
 	await installPrisma();
-	core.info('Prisma installed!');
+	info('Prisma installed!');
 
 	const cp = spawn('npx', ['prisma', 'validate'], {
 		stdio: 'inherit',
 	});
 
-	cp.on('message', core.info);
+	cp.on('message', info);
 }
