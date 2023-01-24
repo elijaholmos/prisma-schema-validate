@@ -2,8 +2,8 @@ name: Prisma Schema Validate
 description: Validate the schema.prisma file
 author: elijaholmos
 branding:
-    icon: package
-    color: orange
+    icon: check
+    color: blue
 inputs:
     version:
         description: NPM version of Prisma to use
