@@ -1,11 +1,14 @@
 name: Prisma Schema Validate
 description: Validate the schema.prisma file
+author: elijaholmos
 branding:
-    icon: package
-    color: orange
+    icon: check
+    color: blue
 inputs:
     version:
-        description: Version of Prisma to use
+        description: NPM version of Prisma to use
+    schema:
+        description: Location of the schema.prisma file
 runs:
     using: node16
     main: dist/index.js

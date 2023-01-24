@@ -1,12 +1,12 @@
 {
 	"name": "prisma-schema-validate",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
-	"type": "module",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "ncc build index.js --minify"
+		"build": "ncc build index.js -mC",
+		"build:w": "ncc build index.js -mCw"
 	},
 	"keywords": [
 		"actions",
