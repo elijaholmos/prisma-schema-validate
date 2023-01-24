@@ -24,13 +24,21 @@ const main = async function () {
 	});
 
 	cp.on('message', info);
+	const exitCode = await new Promise((resolve, reject) => {
+		cp.on('error', reject);
+		cp.on('close', resolve);
+	});
+
+	return exitCode;
 };
 
 module.exports = main;
 
 if (require.main === module) {
-	main().catch((err) => {
-		console.log(err);
-		process.exit(1);
-	});
+	main()
+		.then(process.exit)
+		.catch((err) => {
+			console.log(err);
+			process.exit(1);
+		});
 }
