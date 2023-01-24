@@ -1,6 +1,4 @@
-const { getInput } = require('@actions/core');
-const { error } = require('@actions/core');
-const { info } = require('@actions/core');
+const { getInput, error, info } = require('@actions/core');
 const { spawn } = require('node:child_process');
 const { readFile } = require('node:fs/promises');
 const { join } = require('node:path');
