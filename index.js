@@ -40,8 +40,14 @@ const resolvePrismaVersion = async function () {
 };
 
 const resolveSchemaLocation = function () {
-	const schema = getInput('schema');
-	return schema !== '' ? schema : null;
+	const schemaInput = getInput('schema');
+	const schema = schemaInput !== '' ? schemaInput : null;
+	info(
+		!!schema
+			? `Resolved "schema" input location: ${schema}`
+			: 'Could not resolve input "schema" location, using Prisma default'
+	);
+	return schema;
 };
 
 const installPrisma = async function () {
