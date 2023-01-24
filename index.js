@@ -39,6 +39,11 @@ const resolvePrismaVersion = async function () {
 	return 'latest';
 };
 
+const resolveSchemaLocation = function () {
+	const schema = getInput('schema');
+	return schema !== '' ? schema : null;
+};
+
 const installPrisma = async function () {
 	const cp = spawn('npm', ['install', `prisma@${await resolvePrismaVersion()}`], {
 		stdio: 'inherit',
@@ -65,7 +70,8 @@ const main = async function () {
 	await installPrisma();
 	info('Prisma installed!');
 
-	const cp = spawn('npx', ['prisma', 'validate'], {
+	const schema = resolveSchemaLocation();
+	const cp = spawn('npx', ['prisma', 'validate', ...(!!schema ? [`--schema=${schema}`] : [])], {
 		stdio: 'inherit',
 	});
 
