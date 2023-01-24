@@ -61,10 +61,9 @@ const installPrisma = async function () {
 			error(err);
 			reject(err);
 		});
-		cp.on('close', (i) => {
-			info('cp closed');
-			info(i);
-			resolve(i);
+		cp.on('close', (code) => {
+			info(`Prisma install exited with code ${code}`);
+			code === 0 ? resolve(code) : reject(code);
 		});
 	});
 

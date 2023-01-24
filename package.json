@@ -6,7 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "ncc build index.js -mC",
-		"build:w": "ncc build index.js -mw"
+		"build:w": "ncc build index.js -mCw"
 	},
 	"keywords": [
 		"actions",
