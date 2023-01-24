@@ -1,8 +1,10 @@
+const { getInput } = require('@actions/core');
+const { error } = require('@actions/core');
 const { info } = require('@actions/core');
 const { spawn } = require('node:child_process');
 
-const installPrisma = async function () {
-	const cp = spawn('npm', ['install', 'prisma'], {
+const installPrisma = async function (version = getInput('version')) {
+	const cp = spawn('npm', ['install', `prisma@${version}`], {
 		stdio: 'inherit',
 	});
 
@@ -38,7 +40,7 @@ if (require.main === module) {
 	main()
 		.then(process.exit)
 		.catch((err) => {
-			console.log(err);
+			error(err);
 			process.exit(1);
 		});
 }
