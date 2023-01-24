@@ -6,13 +6,10 @@ const installPrisma = async function () {
 		stdio: 'inherit',
 	});
 
-	const exitCode =
-		(await new Promise()) <
-		number >
-		((resolve, reject) => {
-			cp.on('error', reject);
-			cp.on('close', resolve);
-		});
+	const exitCode = await new Promise((resolve, reject) => {
+		cp.on('error', reject);
+		cp.on('close', resolve);
+	});
 
 	return exitCode;
 };
