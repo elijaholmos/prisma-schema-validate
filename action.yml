@@ -7,7 +7,6 @@ branding:
 inputs:
     version:
         description: NPM version of Prisma to use
-        default: 'latest'
     schema:
         description: Location of the schema.prisma file
 runs:

@@ -39,14 +39,22 @@ const resolvePrismaVersion = async function () {
 	return 'latest';
 };
 
-const installPrisma = async function ({ version = resolvePrismaVersion() } = {}) {
-	const cp = spawn('npm', ['install', `prisma@${version}`], {
+const installPrisma = async function () {
+	const cp = spawn('npm', ['install', `prisma@${await resolvePrismaVersion()}`], {
 		stdio: 'inherit',
 	});
 
 	const exitCode = await new Promise((resolve, reject) => {
-		cp.on('error', reject);
-		cp.on('close', resolve);
+		cp.on('error', (err) => {
+			info('Error installing Prisma');
+			error(err);
+			reject(err);
+		});
+		cp.on('close', (i) => {
+			info('cp closed');
+			info(i);
+			resolve(i);
+		});
 	});
 
 	return exitCode;
