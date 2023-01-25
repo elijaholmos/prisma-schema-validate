@@ -49,7 +49,7 @@ const resolveSchemaLocation = function () {
 };
 
 const installPrisma = async function () {
-	const cp = spawn('npm', ['install', `prisma@${await resolvePrismaVersion()}`], {
+	const cp = spawn('npm', ['install', '-g', `prisma@${await resolvePrismaVersion()}`], {
 		stdio: 'inherit',
 	});
 
