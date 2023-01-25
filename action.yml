@@ -1,5 +1,5 @@
 name: Prisma Schema Validate
-description: Validate the schema.prisma file
+description: GitHub Action to validate a schema.prisma file using the Prisma CLI
 author: elijaholmos
 branding:
     icon: check

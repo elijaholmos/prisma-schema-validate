@@ -2,7 +2,7 @@
 	"name": "prisma-schema-validate",
 	"version": "1.0.0",
 	"private": true,
-	"description": "",
+	"description": "GitHub Action to validate a schema.prisma file using the Prisma CLI",
 	"main": "index.js",
 	"scripts": {
 		"build": "ncc build index.js -mC",
